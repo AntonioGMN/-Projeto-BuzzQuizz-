@@ -234,3 +234,17 @@ main {
     width: 90vw;
   }
 }
+.invisivel{display: none;}
+
+.tela31{display: flex;flex-direction: column; align-items: center;background-color: #E5E5E5;}
+.tela31 .informacoes{display: flex;flex-direction: column;align-items: center;width: 600px; height: 256px;background-color: #FFFFFF;padding-top: 21px;margin-bottom: 85px;}
+.tela31 .informacoes .caixa-imput{width: 564px; height:46px;font-size: 19px;font-style: italic; margin-bottom: 9px;}
+.tela31 .instrucao{font-size: 23px;font-weight: bold;margin-top: 140px;margin-bottom: 27px;}
+.tela31 .botao-prosseguir{display: flex; align-items: center; justify-content: center; width:368.86px; height:54px;background-color: #EC362D;font-size: 21px;color: #FFF5F4;font-family: Roboto;}
+
+.tela32{display: flex;flex-direction: column; align-items: center;background-color: #E5E5E5;}
+.tela32 .informacoes{display: flex;flex-direction: column;align-items: center;width: 600px; height: 825px;background-color: #FFFFFF;padding-top: 21px;margin-bottom: 85px;}
+.tela32 .informacoes .secoes{font-size: 20px;font-family: Roboto;font-weight: bold;}
+.tela32 .informacoes .caixa-imput{width: 564px; height:46px;font-size: 19px;font-style: italic; margin-bottom: 14px;}
+.tela32 .instrucao{font-size: 23px;font-weight: bold;margin-top: 140px;margin-bottom: 27px;}
+.tela32 .botao-prosseguir{display: flex; align-items: center; justify-content: center; width:368.86px; height:54px;background-color: #EC362D;font-size: 21px;color: #FFF5F4;font-family: Roboto;}

@@ -3,6 +3,10 @@
   font-family: "Roboto", sans-serif;
 }
 
+.invisivel {
+  display: none;
+}
+
 p {
   font-style: normal;
   font-weight: normal;
@@ -26,14 +30,16 @@ header {
 }
 
 main {
+  width: 1050px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: auto;
 }
 
 .meusQuizz {
-  width: 1050px;
-  margin: 77px auto;
+  width: 100%;
+  margin: 77px;
 }
 
 .vazio {
@@ -71,8 +77,26 @@ main {
   border-radius: 50px;
 }
 
+.quizzProprio div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 23px;
+  letter-spacing: 0em;
+}
+
+.quizzProprio ion-icon {
+  width: 30px;
+  height: 30px;
+  color: red;
+}
+
 .todosQuizzes {
-  width: 1050px;
+  width: 100%;
 }
 
 .todosQuizzes h1 {
@@ -88,10 +112,8 @@ main {
 
 .quizzes {
   width: 100%;
-  height: 1000px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
 }
 
 .quizzes .quizz {
@@ -99,13 +121,15 @@ main {
   height: 181px;
   position: relative;
 
-  margin-top: 12px;
+  margin-right: 15px;
   border-radius: 5px;
+  overflow: hidden;
 }
 
 .quizz img {
   width: 100%;
   height: 100%;
+  border: none;
 }
 
 .quizz p {
@@ -134,4 +158,79 @@ main {
     rgba(0, 0, 0, 0.5) 64.58%,
     #000000 100%
   );
+}
+
+.jogandoQuizz header {
+  width: 100%;
+  height: 227px;
+  position: relative;
+}
+.jogandoQuizz header img {
+  width: 100%;
+  height: 100%;
+}
+
+.jogandoQuizz header p {
+  font-size: 39px;
+  font-weight: 400;
+  line-height: 46px;
+  letter-spacing: 0em;
+  text-align: center;
+
+  position: absolute;
+  top: auto;
+  left: auto;
+}
+
+.jogandoQuizz .perguntas {
+  width: 90%;
+  height: 80%;
+  padding: 20px;
+}
+
+.jogandoQuizz .perguntas h1 {
+  width: 100%;
+  height: 137.99px;
+  background-color: #434ca0;
+  font-size: 23px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 27px;
+  text-align: center;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.jogandoQuizz .perguntas .respostas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.jogandoQuizz .perguntas .resposta p {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 23px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.jogandoQuizz .perguntas .resposta img {
+  height: 16vw;
+  height: 16vh;
+  margin-top: 18px;
+}
+
+@media (max-width: 1100px) {
+  main {
+    width: 100%;
+  }
+  .meusQuizz,
+  .todosQuizzes {
+    width: 90vw;
+  }
 }

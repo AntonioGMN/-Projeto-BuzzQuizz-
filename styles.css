@@ -160,14 +160,21 @@ main {
   );
 }
 
+.jogandoQuizz {
+  width: 100%;
+}
+
 .jogandoQuizz header {
   width: 100%;
   height: 227px;
   position: relative;
 }
+
 .jogandoQuizz header img {
   width: 100%;
   height: 100%;
+  /* background-size: cover */
+  background-image
 }
 
 .jogandoQuizz header p {
@@ -183,15 +190,18 @@ main {
 }
 
 .jogandoQuizz .perguntas {
-  width: 90%;
+  width: 50%;
   height: 80%;
-  padding: 20px;
 }
+
+.jogandoQuizz .pergunta{
+  margin: 40px 0;
+}
+
 
 .jogandoQuizz .perguntas h1 {
   width: 100%;
   height: 137.99px;
-  background-color: #434ca0;
   font-size: 23px;
   font-style: normal;
   font-weight: 700;
@@ -207,8 +217,9 @@ main {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between; 
 }
+
 
 .jogandoQuizz .perguntas .resposta p {
   font-size: 20px;
@@ -219,18 +230,30 @@ main {
   text-align: left;
 }
 
-.jogandoQuizz .perguntas .resposta img {
-  height: 16vw;
-  height: 16vh;
-  margin-top: 18px;
+.jogandoQuizz .pergunta .respostas .resposta img {
+  width: 310px;
+  height: 175px; 
+  margin: 20px 0 10px 0;
+  
 }
 
 @media (max-width: 1100px) {
   main {
     width: 100%;
   }
+
   .meusQuizz,
   .todosQuizzes {
     width: 90vw;
+  }
+
+  .jogandoQuizz .perguntas{
+    width: 100%;
+  }
+
+  .jogandoQuizz .pergunta .respostas .resposta img {
+    width: 100px;
+    height: 100px; 
+    margin: 10px 0 5px 0;
   }
 }

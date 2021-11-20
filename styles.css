@@ -173,7 +173,6 @@ main {
 .jogandoQuizz header img {
   width: 100%;
   height: 100%;
-  /* background-size: cover */
   background-image
 }
 
@@ -211,6 +210,16 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.jogandoQuizz .perguntas .resposta.coberta{
+  opacity: 0.3;
+}
+
+.jogandoQuizz .perguntas .resposta.erro{
+  color: #FF4B4B; 
+}
+.jogandoQuizz .perguntas .resposta.acerto{
+  color: #009C22; 
 }
 
 .jogandoQuizz .perguntas .respostas {
@@ -257,7 +266,6 @@ main {
     margin: 10px 0 5px 0;
   }
 }
-.invisivel{display: none;}
 
 .tela31{display: flex;flex-direction: column; align-items: center;background-color: #E5E5E5;}
 .tela31 .informacoes{display: flex;flex-direction: column;align-items: center;width: 600px; height: 256px;background-color: #FFFFFF;padding-top: 21px;margin-bottom: 85px;}

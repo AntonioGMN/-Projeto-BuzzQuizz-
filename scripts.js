@@ -3,7 +3,6 @@ let idEscolhido;
 function puxarQuizzes(){
   const promessa = axios.get("https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes");
   promessa.then((resposta) =>{
-    //console.log(resposta);
     for(let i=0; i< resposta.data.length; i++){
       const quizzes = document.querySelector(".todosQuizzes .quizzes");
       quizzes.innerHTML += `
@@ -25,7 +24,6 @@ function escolherQuizz(sele){
   telaInicial.classList.add("invisivel");
   jogandoQuiz.classList.remove("invisivel");
   idEscolhido = sele.querySelector(".id").innerHTML;
-  console.log("idEscolhido: "+ idEscolhido);
   pegarQuizzEscolhido();
 }
 
@@ -33,7 +31,6 @@ function pegarQuizzEscolhido(){
   const promessa = axios.get(`https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/${idEscolhido}`);
   promessa.then((resposta) =>{
     const dados = resposta.data;
-    console.log(dados);
   
     const perguntas = document.querySelector(".jogandoQuizz .perguntas");
     const header = document.querySelector(".jogandoQuizz header")
@@ -44,36 +41,40 @@ function pegarQuizzEscolhido(){
       <div class="gradiente"><div>
     `;
     
-    
     for(let i=0; i<dados.questions.length; i++){
       let n = [];
-      for(let i=0; i< dados.questions[0].answers.length; i++){
-        n.push(i);
+      let num = Math.floor(Math.random() * 4);
+      n.push(num);  
+      for(let i=0; i< dados.questions[0].answers.length - 1; i++){
+        do{
+          num = Math.floor(Math.random() * 4);
+        }while(n.includes(num));
+        n.push(num);
       }
-      console.log(n);
+      console.log(n)
       perguntas.innerHTML += `
       <section class="pergunta">
         <h1 style="background:${dados.questions[i].color};" >${dados.questions[i].title}</h1>
         <section class="respostas">
-          <article class="resposta" onclick="verificarResposta()">
-            <img src=${dados.questions[i].answers[0].image}>
-            <p>${dados.questions[i].answers[0].text}</p>
-            <div class="invisivel">${dados.questions[i].answers[0].isCorrectAnswer}<div>
+          <article class="resposta" onclick="verificarResposta(this)">
+            <img src=${dados.questions[i].answers[n[0]].image}>
+            <p>${dados.questions[i].answers[n[0]].text}</p>
+            <div class="invisivel">${dados.questions[i].answers[n[0]].isCorrectAnswer}</div>
           </article>
-          <article class="resposta" onclick="verificarResposta()">
-            <img src=${dados.questions[i].answers[1].image}>
-            <p>${dados.questions[i].answers[1].text}</p>
-            <div class="invisivel">${dados.questions[i].answers[1].isCorrectAnswer}<div>
+          <article class="resposta" onclick="verificarResposta(this)">
+            <img src=${dados.questions[i].answers[n[1]].image}>
+            <p>${dados.questions[i].answers[n[1]].text}</p>
+            <div class="invisivel">${dados.questions[i].answers[n[1]].isCorrectAnswer}</div>
           </article>
-          <article class="resposta" onclick="verificarResposta()">
-            <img src=${dados.questions[i].answers[2].image}>
-            <p>${dados.questions[i].answers[2].text}</p>
-            <div class="invisivel">${dados.questions[i].answers[2].isCorrectAnswer}<div>
+          <article class="resposta" onclick="verificarResposta(this)">
+            <img src=${dados.questions[i].answers[n[2]].image}>
+            <p>${dados.questions[i].answers[n[2]].text}</p>
+            <div class="invisivel">${dados.questions[i].answers[n[2]].isCorrectAnswer}</div>
           </article>
-          <article class="resposta" onclick="verificarResposta()">
-            <img src=${dados.questions[i].answers[3].image}>
-            <p>${dados.questions[i].answers[3].text}</p>
-            div class="invisivel">${dados.questions[i].answers[3].isCorrectAnswer}<div>
+          <article class="resposta" onclick="verificarResposta(this)">
+            <img src=${dados.questions[i].answers[n[3]].image}>
+            <p>${dados.questions[i].answers[n[3]].text}</p>
+            <div class="invisivel">${dados.questions[i].answers[n[3]].isCorrectAnswer}</div>
           </article>
         </section>
       </section>`
@@ -81,10 +82,22 @@ function pegarQuizzEscolhido(){
   });
 }
 
-function verificarResposta(){
-  const respostas = document.querySelectorAll(".resposta");
-  console.log(respostas.length);
-  console.log("toto")
+function verificarResposta(sele){
+  const respostas = sele.parentElement.querySelectorAll(".resposta");
+  for(let i=0; i<4; i++){
+    if(respostas[i].querySelector(".invisivel").innerHTML == "false"){
+      respostas[i].classList.add("erro");
+    }else{
+      respostas[i].classList.add("acerto");
+    }
+    if(respostas[i] != sele){
+      respostas[i].classList.add("coberta");
+    }
+  } 
+}
+
+function numeroAleatorio(){
+
 }
 
 

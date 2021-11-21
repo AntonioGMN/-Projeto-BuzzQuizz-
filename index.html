@@ -14,7 +14,7 @@
 </head>
 <body>
     <header>BuzzQuizz</header>
-    <main class="telaInicial">
+    <main class="telaInicial invisivel">
         <section class="meusQuizz">
             <section class="vazio">
                 <span>Você não criou nenhum <br>quizz ainda :(<br/></span>
@@ -39,48 +39,75 @@
         <article class="perguntas"></article>
     </main>
 
-    <div class="invisivel">
-        <div class="tela31">
-            <p class="instrucao">Comece pelo começo</p>
-            <div class="informacoes">
-                <input class="caixa-imput" type="text" placeholder="Título do seu quizz">
-                <input class="caixa-imput" type="text" placeholder="URL da imagem do seu quizz">
-                <input class="caixa-imput" type="text" placeholder="Quantidade de perguntas do quizz">
-                <input class="caixa-imput" type="text" placeholder="Quantidade de níveis do quizz">
-            </div>
-            <div class="botao-prosseguir"><p>Prosseguir para criar perguntas</p></div>
 
+    <div class="tela31" style="background-color: royalblue;">
+        <p class="instrucao">Comece pelo começo</p>
+        <div class="informacoes">
+            <input class="caixa-imput" type="text" placeholder="Título do seu quizz">
+            <input class="caixa-imput" type="text" placeholder="URL da imagem do seu quizz">
+            <input class="caixa-imput" type="text" placeholder="Quantidade de perguntas do quizz">
+            <input class="caixa-imput" type="text" placeholder="Quantidade de níveis do quizz">
         </div>
+        <div class="botao-prosseguir"><p>Prosseguir para criar perguntas</p></div>
+
     </div>
-    <!-- <div class="tela32 invisivel"> -->
-    <div class="invisivel">
+
+    <div class="tela32" style="background-color: purple;">
         <p class="instrucao">Crie suas perguntas</p>
         <div class="informacoes">
             <p class="secoes">Pergunta 1</p>
             <input class="caixa-imput" type="text" placeholder="Texto da pergunta">
             <input class="caixa-imput" type="text" placeholder="Cor de fundo da pergunta">
-            <p class="secoes">Pergunta 1</p>
+            <p class="secoes">Resposta correta</p>
             <input class="caixa-imput" type="text" placeholder="Resposta correta">
             <input class="caixa-imput" type="text" placeholder="URL da imagem">
             <p class="secoes">Respostas incorretas</p>
             <input class="caixa-imput" type="text" placeholder="Resposta incorreta 1">
             <input class="caixa-imput" type="text" placeholder="URL da imagem 1">
+            <div style="height: 20px;"></div>
             <input class="caixa-imput" type="text" placeholder="Resposta incorreta 2">
             <input class="caixa-imput" type="text" placeholder="URL da imagem 2">
+            <div style="height: 20px;"></div>
             <input class="caixa-imput" type="text" placeholder="Resposta incorreta 3">
             <input class="caixa-imput" type="text" placeholder="URL da imagem 3">
         </div>
         <div class="informacoes">
             <p class="secoes">Pergunta 2</p>
+            <ion-icon name="create-outline"></ion-icon>
         </div>
         <div class="informacoes">
             <p class="secoes">Pergunta 3</p>
+            <ion-icon name="create-outline"></ion-icon>
         </div>
-
-        <div class="botao-prosseguir"><p>Prosseguir para criar perguntas</p></div>
-
+        <div class="botao-prosseguir"><p>Prosseguir para criar níveis</p></div>
     </div>
 
+    <div class="tela33" style="background-color: orange;">
+        <p class="instrucao">Agora, decida os níveis</p>
+        <div class="informacoes">
+            <p class="secoes">Nível 1</p>
+            <input class="caixa-imput" type="text" placeholder="Título do nível">
+            <input class="caixa-imput" type="text" placeholder="% de acerto mínima">
+            <input class="caixa-imput" type="text" placeholder="URL da imagem do nível">
+            <input class="caixa-imput" type="text" placeholder="Descrição do nível">
+        </div>
+        <div class="informacoes">
+            <p class="secoes">Nível 2</p>
+            <ion-icon name="create-outline"></ion-icon>
+        </div>
+        <div class="informacoes">
+            <p class="secoes">Nível 3</p>
+            <ion-icon name="create-outline"></ion-icon>
+        </div>
+        <div class="botao-prosseguir"><p>Prosseguir para criar níveis</p></div>
+    </div>
+
+    <div class="tela34" style="background-color: greenyellow;">
+        <p class="instrucao">Seu quizz está pronto!</p>
+        <img src="(your image URL here)">
+        <div class="botao-prosseguir"><p>Prosseguir para criar níveis</p></div>
+        <div class="botao-retornar">Voltar para home</div>
+    </div>
     
     <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule="" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"></script>

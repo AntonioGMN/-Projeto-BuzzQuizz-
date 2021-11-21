@@ -27,6 +27,10 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: sticky;
+  top: 0px;
+  left: 0px;
+  z-index: 3;
 }
 
 main {
@@ -168,12 +172,12 @@ main {
   width: 100%;
   height: 227px;
   position: relative;
+  z-index: 2;
 }
 
 .jogandoQuizz header img {
   width: 100%;
   height: 100%;
-  background-image
 }
 
 .jogandoQuizz header p {
@@ -191,12 +195,14 @@ main {
 .jogandoQuizz .perguntas {
   width: 50%;
   height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.jogandoQuizz .pergunta{
-  margin: 40px 0;
+.jogandoQuizz .pergunta {
+  margin: 60px 0;
 }
-
 
 .jogandoQuizz .perguntas h1 {
   width: 100%;
@@ -211,24 +217,23 @@ main {
   align-items: center;
   justify-content: center;
 }
-.jogandoQuizz .perguntas .resposta.coberta{
+.jogandoQuizz .perguntas .resposta.coberta {
   opacity: 0.3;
 }
 
-.jogandoQuizz .perguntas .resposta.erro{
-  color: #FF4B4B; 
+.jogandoQuizz .perguntas .resposta.erro {
+  color: #ff4b4b;
 }
-.jogandoQuizz .perguntas .resposta.acerto{
-  color: #009C22; 
+.jogandoQuizz .perguntas .resposta.acerto {
+  color: #009c22;
 }
 
 .jogandoQuizz .perguntas .respostas {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between; 
+  justify-content: space-between;
 }
-
 
 .jogandoQuizz .perguntas .resposta p {
   font-size: 20px;
@@ -241,9 +246,8 @@ main {
 
 .jogandoQuizz .pergunta .respostas .resposta img {
   width: 310px;
-  height: 175px; 
+  height: 175px;
   margin: 20px 0 10px 0;
-  
 }
 
 @media (max-width: 1100px) {
@@ -256,26 +260,100 @@ main {
     width: 90vw;
   }
 
-  .jogandoQuizz .perguntas{
+  .jogandoQuizz .perguntas {
     width: 100%;
   }
 
   .jogandoQuizz .pergunta .respostas .resposta img {
     width: 100px;
-    height: 100px; 
+    height: 100px;
     margin: 10px 0 5px 0;
   }
 }
 
-.tela31{display: flex;flex-direction: column; align-items: center;background-color: #E5E5E5;}
-.tela31 .informacoes{display: flex;flex-direction: column;align-items: center;width: 600px; height: 256px;background-color: #FFFFFF;padding-top: 21px;margin-bottom: 85px;}
-.tela31 .informacoes .caixa-imput{width: 564px; height:46px;font-size: 19px;font-style: italic; margin-bottom: 9px;}
-.tela31 .instrucao{font-size: 23px;font-weight: bold;margin-top: 140px;margin-bottom: 27px;}
-.tela31 .botao-prosseguir{display: flex; align-items: center; justify-content: center; width:368.86px; height:54px;background-color: #EC362D;font-size: 21px;color: #FFF5F4;font-family: Roboto;}
+.tela31 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #e5e5e5;
+}
+.tela31 .informacoes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 600px;
+  height: 256px;
+  background-color: #ffffff;
+  padding-top: 21px;
+  margin-bottom: 85px;
+}
+.tela31 .informacoes .caixa-imput {
+  width: 564px;
+  height: 46px;
+  font-size: 19px;
+  font-style: italic;
+  margin-bottom: 9px;
+}
+.tela31 .instrucao {
+  font-size: 23px;
+  font-weight: bold;
+  margin-top: 140px;
+  margin-bottom: 27px;
+}
+.tela31 .botao-prosseguir {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 368.86px;
+  height: 54px;
+  background-color: #ec362d;
+  font-size: 21px;
+  color: #fff5f4;
+  font-family: Roboto;
+}
 
-.tela32{display: flex;flex-direction: column; align-items: center;background-color: #E5E5E5;}
-.tela32 .informacoes{display: flex;flex-direction: column;align-items: center;width: 600px; height: 825px;background-color: #FFFFFF;padding-top: 21px;margin-bottom: 85px;}
-.tela32 .informacoes .secoes{font-size: 20px;font-family: Roboto;font-weight: bold;}
-.tela32 .informacoes .caixa-imput{width: 564px; height:46px;font-size: 19px;font-style: italic; margin-bottom: 14px;}
-.tela32 .instrucao{font-size: 23px;font-weight: bold;margin-top: 140px;margin-bottom: 27px;}
-.tela32 .botao-prosseguir{display: flex; align-items: center; justify-content: center; width:368.86px; height:54px;background-color: #EC362D;font-size: 21px;color: #FFF5F4;font-family: Roboto;}
+.tela32 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #e5e5e5;
+}
+.tela32 .informacoes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 600px;
+  height: 825px;
+  background-color: #ffffff;
+  padding-top: 21px;
+  margin-bottom: 85px;
+}
+.tela32 .informacoes .secoes {
+  font-size: 20px;
+  font-family: Roboto;
+  font-weight: bold;
+}
+.tela32 .informacoes .caixa-imput {
+  width: 564px;
+  height: 46px;
+  font-size: 19px;
+  font-style: italic;
+  margin-bottom: 14px;
+}
+.tela32 .instrucao {
+  font-size: 23px;
+  font-weight: bold;
+  margin-top: 140px;
+  margin-bottom: 27px;
+}
+.tela32 .botao-prosseguir {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 368.86px;
+  height: 54px;
+  background-color: #ec362d;
+  font-size: 21px;
+  color: #fff5f4;
+  font-family: Roboto;
+}

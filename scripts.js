@@ -53,7 +53,7 @@ function pegarQuizzEscolhido(){
       }
       console.log(n)
       perguntas.innerHTML += `
-      <section class="pergunta">
+      <section class="pergunta nãoRespondida">
         <h1 style="background:${dados.questions[i].color};" >${dados.questions[i].title}</h1>
         <section class="respostas">
           <article class="resposta" onclick="verificarResposta(this)">
@@ -93,12 +93,17 @@ function verificarResposta(sele){
     if(respostas[i] != sele){
       respostas[i].classList.add("coberta");
     }
-  } 
+  }
+  const proximaPergunta = document.querySelector(".pergunta.nãoRespondida");
+  proximaPergunta.classList.remove("nãoRespondida");
+  proximaPergunta.classList.add("Respondida");
+  setTimeout(() => {
+    const proximaPergunta = document.querySelector(".pergunta.nãoRespondida");
+    proximaPergunta.scrollIntoView();
+  },2000);
 }
 
-function numeroAleatorio(){
 
-}
 
 
 

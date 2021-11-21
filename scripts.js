@@ -1,4 +1,5 @@
 let idEscolhido;
+let pontuação = 0;
 
 function puxarQuizzes(){
   const promessa = axios.get("https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes");
@@ -31,6 +32,7 @@ function pegarQuizzEscolhido(){
   const promessa = axios.get(`https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/${idEscolhido}`);
   promessa.then((resposta) =>{
     const dados = resposta.data;
+    console.log(dados);
   
     const perguntas = document.querySelector(".jogandoQuizz .perguntas");
     const header = document.querySelector(".jogandoQuizz header")
@@ -51,7 +53,7 @@ function pegarQuizzEscolhido(){
         }while(n.includes(num));
         n.push(num);
       }
-      console.log(n)
+    
       perguntas.innerHTML += `
       <section class="pergunta nãoRespondida">
         <h1 style="background:${dados.questions[i].color};" >${dados.questions[i].title}</h1>
@@ -79,6 +81,18 @@ function pegarQuizzEscolhido(){
         </section>
       </section>`
     }
+
+    const levels = document.querySelector(".jogandoQuizz .levels");
+    for(let i=0; i<dados.levels.length;i++){
+      if(pontuação >= dados.levels[i].minValue){
+        levels.innerHTML = `
+          <header>${dados.levels[i].title}</header>
+          <div>
+              <img src="${dados.levels[i].image}">;
+              <p>${dados.levels[i].text}</p>
+          </div>`
+      }
+    }
   });
 }
 
@@ -94,15 +108,176 @@ function verificarResposta(sele){
       respostas[i].classList.add("coberta");
     }
   }
+
+  const perguntas = document.querySelectorAll(".pergunta");
+  if(sele.querySelector("div").innerHTML == "true"){
+    pontuação += (100/perguntas.length);
+  }
+  console.log(pontuação);
+
   const proximaPergunta = document.querySelector(".pergunta.nãoRespondida");
   proximaPergunta.classList.remove("nãoRespondida");
   proximaPergunta.classList.add("Respondida");
   setTimeout(() => {
     const proximaPergunta = document.querySelector(".pergunta.nãoRespondida");
-    proximaPergunta.scrollIntoView();
+    if(proximaPergunta != null){
+      proximaPergunta.scrollIntoView();
+    }else{
+      carregarPontuação();
+    }
   },2000);
+
 }
 
+function carregarPontuação(){
+  const promessa = axios.get(`https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/${idEscolhido}`);
+  const levels = document.querySelector(".jogandoQuizz .levels");
+  promessa.then((resposta) =>{
+    const dados = resposta.data;
+    for(let i=0; i<dados.levels.length;i++){
+      if(pontuação >= dados.levels[i].minValue){
+        levels.innerHTML = `
+          <header>${pontuação.toFixed(0)}% de acertos: ${dados.levels[i].title}</header>
+          <div>
+              <img src="${dados.levels[i].image}">
+              <p>${dados.levels[i].text}</p>
+          </div>`
+      }
+    }
+  });
+  levels.classList.remove("invisivel");
+  levels.scrollIntoView();
+}
+
+// let ultimaMensagem;
+// let nomeDeUsuario;
+
+// function scrollarAteUltimaMensagem() {
+//     const ulMensagens = document.querySelector(".mensagens-container");
+//     const liUltimaMensagem = ulMensagens.lastElementChild;
+
+//     if (ultimaMensagem !== liUltimaMensagem) {
+//         liUltimaMensagem.scrollIntoView();
+//         ultimaMensagem = liUltimaMensagem;
+//     }
+// }
+
+// function Mensagem(dados) {
+//     let classeMensagem = '';
+//     let destinatario = '';
+
+//     if (dados.type === 'status') {
+//         classeMensagem = 'entrada-saida';
+//     }
+
+//     if (dados.type === 'private_message') {
+//         if (dados.to !== nomeDeUsuario &&
+//             dados.to !== "Todos" &&
+//             dados.from !== nomeDeUsuario) {
+//             return "";
+//         }
+
+//         classeMensagem = 'conversa-privada';
+//         destinatario = `<span> para </span>
+//         <strong>${dados.to}: </strong>`;
+//     }
+
+//     if (dados.type === 'message') {
+//         classeMensagem = 'conversa-publica';
+//         destinatario = `<span> para </span>
+//         <strong>${dados.to}: </strong>`;
+//     }
+
+//     return `
+//         <li class="${classeMensagem}" data-identifier="message">
+//             <span class="horario">(${dados.time})</span>
+//             <strong>${dados.from}</strong>
+//             ${destinatario}
+//             <span>${dados.text}</span>
+//         </li>
+//     `;
+// }
+
+// function carregarMensagens() {
+//     const promessa = axios.get("https://mock-api.driven.com.br/api/v4/uol/messages");
+
+//     promessa.then((resposta) => {
+//         const mensagens = resposta.data;
+
+//         const ulMensagens = document.querySelector(".mensagens-container");
+//         ulMensagens.innerHTML = '';
+
+//         for (let i = 0; i < mensagens.length; i++) {
+//             ulMensagens.innerHTML += Mensagem(mensagens[i]);
+//         }
+
+//         scrollarAteUltimaMensagem();
+//     });
+// }
+
+// function perguntarNome() {
+//     nomeDeUsuario = prompt("Qual seu lindo nome?");
+
+//     const promessa = axios.post("https://mock-api.driven.com.br/api/v4/uol/participants", {
+//         name: nomeDeUsuario
+//     });
+
+//     promessa.then(() => {
+//         setInterval(() => {
+//             axios.post("https://mock-api.driven.com.br/api/v4/uol/status", {
+//                 name: nomeDeUsuario
+//             });
+//         }, 4800);
+//     });
+
+//     promessa.catch(() => {
+//         alert("Nome indisponivel");
+//         perguntarNome();
+//     });
+// }
+
+// function iniciarApp() {
+//     carregarMensagens();
+//     setInterval(carregarMensagens, 3000);
+
+//     perguntarNome();
+
+//     const inputMensagem = document.querySelector('.input-mensagem');
+//     inputMensagem.onkeydown = (e) => {
+//         if (e.code === 'Enter') {
+//             enviarMensagem();
+//         }
+//     };
+// }
+
+// function enviarMensagem() {
+//     const inputMensagem = document.querySelector('.input-mensagem');
+
+//     const promessa = axios.post("https://mock-api.driven.com.br/api/v4/uol/messages", {
+//         from: nomeDeUsuario,
+//         to: "Todos",
+//         text: inputMensagem.value,
+//         type: "message"
+//     });
+
+//     inputMensagem.value = '';
+
+//     promessa.then(carregarMensagens);
+
+//     promessa.catch(() => {
+//         window.location.reload();
+//     });
+// }
+
+// function toggleMenu() {
+//     const menu = document.querySelector('.menu');
+//     const menuFundo = document.querySelector('.menu-fundo');
+
+//     menu.classList.toggle("escondido");
+//     menuFundo.classList.toggle("fundo-escondido");
+// }
+
+// iniciarApp();
 
 
 

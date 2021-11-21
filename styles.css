@@ -165,11 +165,10 @@ main {
 }
 
 .jogandoQuizz {
-  width: 100%;
+  width: 759px;
 }
 
 .jogandoQuizz header {
-  width: 100%;
   height: 227px;
   position: relative;
   z-index: 2;
@@ -193,15 +192,14 @@ main {
 }
 
 .jogandoQuizz .perguntas {
-  width: 50%;
-  height: 80%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
 .jogandoQuizz .pergunta {
-  margin: 60px 0;
+  margin: 30px 0;
 }
 
 .jogandoQuizz .perguntas h1 {
@@ -250,6 +248,34 @@ main {
   margin: 20px 0 10px 0;
 }
 
+.jogandoQuizz .levels header{
+  width: 100%;
+  height: 99px;
+  margin-bottom: 10px;
+}
+
+.jogandoQuizz .levels div{
+  display: flex;
+  word-wrap: break-word; 
+}
+
+.jogandoQuizz .levels img{
+  width: 364px;
+  height: 273px;
+  margin-right: 10px;
+} 
+
+.jogandoQuizz .levels p{
+  font-size: 19px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 25px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #484848;
+}
+
+
 @media (max-width: 1100px) {
   main {
     width: 100%;
@@ -278,6 +304,11 @@ main {
   align-items: center;
   background-color: #e5e5e5;
 }
+
+.tela31.invisivel{
+  display: none;
+}
+
 .tela31 .informacoes {
   display: flex;
   flex-direction: column;
@@ -318,6 +349,10 @@ main {
   flex-direction: column;
   align-items: center;
   background-color: #e5e5e5;
+}
+
+.tela32.invisivel{
+ display: none; 
 }
 .tela32 .informacoes {
   display: flex;
@@ -380,10 +415,15 @@ main {
 .tela33 .informacoes .caixa-imput{width: 564px; height:46px;font-size: 19px;font-style: italic; margin-bottom: 14px;margin-left: 17px;}
 .tela33 .informacoes ion-icon{position: absolute;right: 20px;width:26px;height:23px;}
 .tela33 .botao-prosseguir{font-family: Roboto;font-size: 21px;display: flex; align-items: center; justify-content: center; width:368.86px; height:54px;background-color: #EC362D;color: #FFF5F4;border-radius: 15px;margin-top: 55px;}
-
+.tela33.invisivel{
+  display: none; 
+ }
 .tela34{display: flex;flex-direction: column; align-items: center;background-color: #E5E5E5;padding-top: 71px;}
 .tela34 .instrucao{font-family: Roboto;font-weight: bold;font-size: 23px; margin-bottom: 27px;}
 .tela34 img {width:500px;height:266px;margin-top: 19px;margin-bottom: 45px;}
 .tela34 .botao-prosseguir{font-family: Roboto;font-size: 21px;display: flex; align-items: center; justify-content: center; width:368.86px; height:54px;background-color: #EC362D;color: #FFF5F4;border-radius: 15px;}
 .tela34 .botao-retornar {font-family: Roboto; font-size: 21px;margin-top: 9px;color: #818181;}
+.tela34.invisivel{
+  display: none; 
+ }
 >>>>>>> 6d3b80306d57bdb99cc30406e222e6d33b5008a8

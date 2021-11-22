@@ -234,7 +234,7 @@ main {
     width: 90vw;
   }
 }
-.invisivel{display: none;}
+
 
 .tela31{display: flex;flex-direction: column; align-items: center;background-color: #E5E5E5;padding-top: 71px;}
 .tela31 .instrucao{font-family: Roboto;font-weight: bold;font-size: 23px; margin-bottom: 27px;}
@@ -263,3 +263,5 @@ main {
 .tela34 img {width:500px;height:266px;margin-top: 19px;margin-bottom: 45px;}
 .tela34 .botao-prosseguir{font-family: Roboto;font-size: 21px;display: flex; align-items: center; justify-content: center; width:368.86px; height:54px;background-color: #EC362D;color: #FFF5F4;border-radius: 15px;}
 .tela34 .botao-retornar {font-family: Roboto; font-size: 21px;margin-top: 9px;color: #818181;}
+
+.invisivel{display: none;}

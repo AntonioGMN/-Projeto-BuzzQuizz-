@@ -95,11 +95,9 @@ function pegarQuizzEscolhido(){
   });
 }
 
-<<<<<<< HEAD
+
 puxarQuizzes();
- 
-////////////////////////////////////////////////////////////////////////////////////// Tela 31
-=======
+
 function verificarResposta(sele){
   const respostas = sele.parentElement.querySelectorAll(".resposta");
   for(let i=0; i<4; i++){
@@ -313,19 +311,12 @@ function voltar(){
 
 // iniciarApp();
 
-
-
-
-
-
-
-
->>>>>>> 156ef077163df852d32bef0a545df35bcdd659ce
-
 let tituloQuizz = "";
 let imagemQuizz = "";
 let quantasPerguntas = 0;
 let quantosNiveis = 0;
+
+////////////////////////////////////////////////////////////////////////////////////// Tela 31
 
 function validaTela31() {
   tituloQuizz = document.getElementById("tituloQuizz").value;
@@ -382,8 +373,6 @@ function expandir(classeImput) {
 ////////////////////////////////////////////////////////////////////////////////////// Tela 32
 
 function validaTela32() {
-  let quantasPerguntas = document.getElementById("quantasPerguntas").value;
-
   let textoPerg = [];
   for (let i = 1; i <= quantasPerguntas; i++) {
     textoPerg[i - 1] = document.getElementById("textoPerg" + i).value;
@@ -473,4 +462,18 @@ function validaTela32() {
         `;
     }
   }
+}
+
+////////////////////////////////////////////////////////////////////////////////////// Tela 32
+
+function validaTela33(){
+  let tituloNivel = [];
+  for (let i = 1; i <= quantosNiveis; i++) {
+    tituloNivel[i - 1] = document.getElementById("tituloNivel" + i).value;
+  }
+  let tituloNivelOk = [];
+  for (let j = 0; j < quantosNiveis; j++) {
+    tituloNivelOk[j] = tituloNivel[j].length >= 10;
+  }
+  if (tituloNivelOk.includes(false)){alert("Preencha os dados corretamente");}
 }

@@ -454,9 +454,9 @@ function validaTela32() {
           <ion-icon name="create-outline" onclick="expandir('.inputs-nivel${i}')"></ion-icon>
           <div class="inputs-nivel inputs-nivel${i} invisivel">
             <input class="caixa-imput" id="tituloNivel${i}" type="text" placeholder="Título do nível"/>
-            <input class="caixa-imput" id="porcentNivel${i}" type="text" placeholder="% de acerto mínima"/>
+            <input class="caixa-imput" id="porcentNivel${i}" type="number" placeholder="% de acerto mínima"/>
             <input class="caixa-imput" type="url" placeholder="URL da imagem do nível"/>
-            <input class="caixa-imput" type="url" placeholder="Descrição do nível"/>
+            <input class="caixa-imput" id="descNivel${i}" type="url" placeholder="Descrição do nível"/>
           </div>
         </div>
         `;
@@ -475,5 +475,30 @@ function validaTela33(){
   for (let j = 0; j < quantosNiveis; j++) {
     tituloNivelOk[j] = tituloNivel[j].length >= 10;
   }
-  if (tituloNivelOk.includes(false)){alert("Preencha os dados corretamente");}
+
+  let porcentNivel = [];
+  for (let i = 1; i <= quantosNiveis; i++) {
+    porcentNivel[i - 1] = document.getElementById("porcentNivel" + i).value;
+  }
+  let porcentNivelOk = [];
+  for (let j = 0; j < quantosNiveis; j++) {
+    porcentNivelOk[j] = (0<=porcentNivel[j])&&(porcentNivel[j]<=100);
+  }
+
+  let descNivel = [];
+  for (let i = 1; i <= quantosNiveis; i++) {
+    descNivel[i - 1] = document.getElementById("descNivel" + i).value;
+  }
+  let descNivelOk = [];
+  for (let j = 0; j < quantosNiveis; j++) {
+    descNivelOk[j] = descNivel[j].length >= 30;
+  }
+
+  if (tituloNivelOk.includes(false)||porcentNivelOk.includes(false)||descNivelOk.includes(false)||!porcentNivel.includes("0")){alert("Preencha os dados corretamente");}
+  else{
+    const elemento1 = document.querySelector(".tela33");
+    const elemento2 = document.querySelector(".tela34");
+    elemento1.classList.add("invisivel");
+    elemento2.classList.remove("invisivel");
+  }
 }

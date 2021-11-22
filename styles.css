@@ -421,7 +421,7 @@ main {
 }
 
 /*--------------------------------------Estilos Igor----------------------------------------------------*/
-.tela32 .botao-prosseguir {
+/* .tela32 .botao-prosseguir {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -432,6 +432,218 @@ main {
   color: #fff5f4;
   font-family: Roboto;
 }
+
+.tela31 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #e5e5e5;
+  padding-top: 71px;
+}
+.tela31 .instrucao {
+  font-family: Roboto;
+  font-weight: bold;
+  font-size: 23px;
+  margin-bottom: 27px;
+}
+.tela31 .informacoes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 600px;
+  height: 256px;
+  background-color: #ffffff;
+  padding-top: 21px;
+  margin-bottom: 85px;
+}
+.tela31 .informacoes .caixa-imput {
+  font-family: Roboto;
+  font-size: 19px;
+  font-style: italic;
+  width: 564px;
+  height: 46px;
+  margin-bottom: 9px;
+}
+.tela31 .botao-prosseguir {
+  font-family: Roboto;
+  font-size: 21px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 368.86px;
+  height: 54px;
+  background-color: #ec362d;
+  color: #fff5f4;
+  border-radius: 15px;
+}
+
+.tela32 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #e5e5e5;
+  padding-top: 63px;
+}
+.tela32 .instrucao {
+  font-family: Roboto;
+  font-weight: bold;
+  font-size: 23px;
+  margin-bottom: 27px;
+}
+.tela32 .informacoes {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  background-color: #ffffff;
+  padding-top: 27px;
+  padding-bottom: 13px;
+  margin-bottom: 24px;
+}
+.tela32 .informacoes .secoes {
+  font-family: Roboto;
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 14px;
+  margin-left: 16px;
+}
+.tela32 .informacoes .caixa-imput {
+  width: 564px;
+  height: 46px;
+  font-size: 19px;
+  font-style: italic;
+  margin-bottom: 14px;
+  margin-left: 17px;
+}
+.tela32 .informacoes ion-icon {
+  position: absolute;
+  right: 20px;
+  width: 26px;
+  height: 23px;
+}
+.tela32 .botao-prosseguir {
+  font-family: Roboto;
+  font-size: 21px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 368.86px;
+  height: 54px;
+  background-color: #ec362d;
+  color: #fff5f4;
+  border-radius: 15px;
+  margin-top: 55px;
+}
+
+.tela33 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #e5e5e5;
+  padding-top: 63px;
+}
+
+.tela33 .instrucao {
+  font-family: Roboto;
+  font-weight: bold;
+  font-size: 23px;
+  margin-bottom: 27px;
+}
+.tela33 .informacoes {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  background-color: #ffffff;
+  padding-top: 27px;
+  padding-bottom: 13px;
+  margin-bottom: 24px;
+}
+.tela33 .informacoes .secoes {
+  font-family: Roboto;
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 14px;
+  margin-left: 16px;
+}
+.tela33 .informacoes .caixa-imput {
+  width: 564px;
+  height: 46px;
+  font-size: 19px;
+  font-style: italic;
+  margin-bottom: 14px;
+  margin-left: 17px;
+}
+.tela33 .informacoes ion-icon {
+  position: absolute;
+  right: 20px;
+  width: 26px;
+  height: 23px;
+}
+.tela33 .botao-prosseguir {
+  font-family: Roboto;
+  font-size: 21px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 368.86px;
+  height: 54px;
+  background-color: #ec362d;
+  color: #fff5f4;
+  border-radius: 15px;
+  margin-top: 55px;
+}
+
+.tela33.invisivel {
+  display: none;
+}
+
+.tela34 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #e5e5e5;
+  padding-top: 71px;
+}
+
+.tela34 .instrucao {
+  font-family: Roboto;
+  font-weight: bold;
+  font-size: 23px;
+  margin-bottom: 27px;
+}
+.tela34 img {
+  width: 500px;
+  height: 266px;
+  margin-top: 19px;
+  margin-bottom: 45px;
+}
+.tela34 .botao-prosseguir {
+  font-family: Roboto;
+  font-size: 21px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 368.86px;
+  height: 54px;
+  background-color: #ec362d;
+  color: #fff5f4;
+  border-radius: 15px;
+}
+.tela34 .botao-retornar {
+  font-family: Roboto;
+  font-size: 21px;
+  margin-top: 9px;
+  color: #818181;
+}
+
+.invisivel {
+  display: none;
+}
+
+.tela34.invisivel {
+  display: none;
+} */
 
 .tela31 {
   display: flex;
@@ -593,10 +805,6 @@ main {
   margin-top: 55px;
 }
 
-.tela33.invisivel {
-  display: none;
-}
-
 .tela34 {
   display: flex;
   flex-direction: column;
@@ -604,7 +812,6 @@ main {
   background-color: #e5e5e5;
   padding-top: 71px;
 }
-
 .tela34 .instrucao {
   font-family: Roboto;
   font-weight: bold;
@@ -616,6 +823,20 @@ main {
   height: 266px;
   margin-top: 19px;
   margin-bottom: 45px;
+}
+.tela34 .imagem {
+  position: relative;
+  width: 500px;
+  height: 266px;
+}
+.tela34 .imagem .legenda {
+  position: absolute;
+  left: 23px;
+  bottom: 20px;
+  font-family: Roboto;
+  font-size: 23px;
+  color: #ffffff;
+  z-index: 2;
 }
 .tela34 .botao-prosseguir {
   font-family: Roboto;
@@ -632,14 +853,10 @@ main {
 .tela34 .botao-retornar {
   font-family: Roboto;
   font-size: 21px;
-  margin-top: 9px;
+  margin-top: 20px;
   color: #818181;
 }
 
 .invisivel {
-  display: none;
-}
-
-.tela34.invisivel {
   display: none;
 }

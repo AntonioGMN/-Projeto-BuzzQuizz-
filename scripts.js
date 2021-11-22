@@ -85,6 +85,7 @@ function pegarQuizzEscolhido(){
     const levels = document.querySelector(".jogandoQuizz .levels");
     for(let i=0; i<dados.levels.length;i++){
       if(pontuação >= dados.levels[i].minValue){
+        console.log(toto);
         levels.innerHTML = `
           <header>${dados.levels[i].title}</header>
           <div>
@@ -188,6 +189,9 @@ function criarQuizz(){
   tela31.classList.remove("invisivel");
 }
  
+
+
+ 
 ///////////////////////////////////Tela 31//////////////////////////////////////////
 
 let tituloQuizz = "";
@@ -247,7 +251,7 @@ function expandir(classeImput) {
   elemento2.classList.toggle("invisivel");
 }
 
-///////////////////////////////////// Tela 32 ///////////////////////////
+///////////////////////////////////// Tela 32 /////////////////
 
 function validaTela32() {
   let quantasPerguntas = document.getElementById("quantasPerguntas").value;

@@ -32,7 +32,6 @@ function pegarQuizzEscolhido(){
   const promessa = axios.get(`https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/${idEscolhido}`);
   promessa.then((resposta) =>{
     const dados = resposta.data;
-    console.log(dados);
   
     const perguntas = document.querySelector(".jogandoQuizz .perguntas");
     const header = document.querySelector(".jogandoQuizz header")
@@ -113,7 +112,6 @@ function verificarResposta(sele){
   if(sele.querySelector("div").innerHTML == "true"){
     pontuação += (100/perguntas.length);
   }
-  console.log(pontuação);
 
   const proximaPergunta = document.querySelector(".pergunta.nãoRespondida");
   proximaPergunta.classList.remove("nãoRespondida");
@@ -145,8 +143,39 @@ function carregarPontuação(){
       }
     }
   });
-  levels.classList.remove("invisivel");
+  levels.parentElement.classList.remove("invisivel");
   levels.scrollIntoView();
+}
+
+function reiniciar(){
+  const respondidos = document.querySelectorAll(".jogandoQuizz .perguntas .Respondida");
+  const erros = document.querySelectorAll(".jogandoQuizz .perguntas .erro");
+  const coberto = document.querySelectorAll(".jogandoQuizz .perguntas .coberta");
+  const acerto = document.querySelectorAll(".jogandoQuizz .perguntas .acerto");
+  const header = document.querySelector(".jogandoQuizz header");
+  const quadro = document.querySelector(".jogandoQuizz .quadro");
+  for(let i=0; i< erros.length; i++){
+    erros[i].classList.remove("erro");
+  }
+  for(let i=0; i< coberto.length; i++){
+    coberto[i].classList.remove("coberta");
+  }
+  for(let i=0; i< acerto.length; i++){
+    acerto[i].classList.remove("acerto");
+  }
+  for(let i=0; i< respondidos.length; i++){
+    respondidos[i].classList.remove("Respondida");
+    respondidos[i].classList.add("nãoRespondida");
+  }
+  header.scrollIntoView();
+  quadro.classList.add("invisivel");
+}
+
+function voltar(){
+  const jogando = document.querySelector(".jogandoQuizz");
+  jogando.classList.add("invisivel");
+  const inicio = document.querySelector(".telaInicial");
+  inicio.classList.remove("invisivel");
 }
 
 // let ultimaMensagem;

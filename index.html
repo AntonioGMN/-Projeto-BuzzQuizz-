@@ -63,75 +63,86 @@
         </article>
     </main>
 
-    <!---------------------------------------------------Tela 31-------------------------------------------------------------------->
+   <!---------------------------------------------------Tela 31-------------------------------------------------------------------->
+
     <div class="tela31" style="background-color: royalblue;">
         <p class="instrucao">Comece pelo começo</p>
         <div class="informacoes">
-            <input class="caixa-imput" id="tituloQuizz" type="text" placeholder="Título do seu quizz">
-            <input class="caixa-imput" id="imagemQuizz" type="url" placeholder="URL da imagem do seu quizz">
-            <input class="caixa-imput" id="quantasPerguntas" type="number" placeholder="Quantidade de perguntas do quizz">
-            <input class="caixa-imput" id="quantosNiveis" type="number" placeholder="Quantidade de níveis do quizz">
+            <input class="caixa-imput" id="tituloQuizz" type="text" placeholder="Título do seu quizz"/>
+            <input class="caixa-imput" id="imagemQuizz" type="url" placeholder="URL da imagem do seu quizz"/>
+            <input class="caixa-imput" id="quantasPerguntas" type="number" placeholder="Quantidade de perguntas do quizz"/>
+            <input class="caixa-imput" id="quantosNiveis" type="number" placeholder="Quantidade de níveis do quizz"/>
         </div>
-        <div class="botao-prosseguir" onclick="validaTela31()"><p>Prosseguir para criar perguntas</p></div>
+        <div class="botao-prosseguir" onclick="validaTela31()">
+            <p>Prosseguir para criar perguntas</p>
+        </div>
     </div>
-    <!---------------------------------------------------Tela 32-------------------------------------------------------------------->
+
+  <!---------------------------------------------------Tela 32-------------------------------------------------------------------->
+
     <div class="tela32 invisivel" style="background-color: purple;">
         <p class="instrucao">Crie suas perguntas</p>
         <div class="perguntas-criar">
             <div class="informacoes">
                 <p class="secoes">Pergunta 1</p>
                 <div class="inputs-pergunta inputs-pergunta1">
-                    <input class="caixa-imput" id="textoPerg1" type="text" placeholder="Texto da pergunta">
-                    <input class="caixa-imput" id="corPerg1" type="text" placeholder="Cor de fundo da pergunta">
+                    <input class="caixa-imput" id="textoPerg1" type="text" placeholder="Texto da pergunta"/>
+                    <input class="caixa-imput" id="corPerg1" type="text" placeholder="Cor de fundo da pergunta"/>
                     <p class="secoes">Resposta correta</p>
-                    <input class="caixa-imput" id="corretaPerg1" type="text" placeholder="Resposta correta">
-                    <input class="caixa-imput" type="url" placeholder="URL da imagem">
+                    <input class="caixa-imput" id="corretaPerg1" type="text" placeholder="Resposta correta"/>
+                    <input class="caixa-imput" type="url" placeholder="URL da imagem" />
                     <p class="secoes">Respostas incorretas</p>
-                    <input class="caixa-imput" id="errada1Perg1" type="text" placeholder="Resposta incorreta 1">
-                    <input class="caixa-imput" type="url" placeholder="URL da imagem 1">
+                    <input class="caixa-imput" id="errada1Perg1" type="text" placeholder="Resposta incorreta 1"/>
+                    <input class="caixa-imput" type="url" placeholder="URL da imagem 1"/>
                     <div style="height: 20px;"></div>
-                    <input class="caixa-imput" id="errada2Perg1" type="text" placeholder="Resposta incorreta 2">
-                    <input class="caixa-imput" type="url" placeholder="URL da imagem 2">
+                    <input class="caixa-imput" id="errada2Perg1" type="text" placeholder="Resposta incorreta 2"/>
+                    <input class="caixa-imput" type="url" placeholder="URL da imagem 2"/>
                     <div style="height: 20px;"></div>
-                    <input class="caixa-imput" id="errada3Perg1" type="text" placeholder="Resposta incorreta 3">
-                    <input class="caixa-imput" type="url" placeholder="URL da imagem 3">
+                    <input class="caixa-imput" id="errada3Perg1" type="text" placeholder="Resposta incorreta 3"/>
+                    <input class="caixa-imput" type="url" placeholder="URL da imagem 3"/>
                 </div>
             </div>
-
         </div>
-        <div class="botao-prosseguir" onclick="validaTela32()"><p>Prosseguir para criar níveis</p></div>
+        <div class="botao-prosseguir" onclick="validaTela32()">
+            <p>Prosseguir para criar níveis</p>
+        </div>
     </div>
 
-    <div class="tela33" style="background-color: orange;">
+<!---------------------------------------------------Tela 33-------------------------------------------------------------------->
+
+    <div class="tela33 invisivel" style="background-color: orange;">
         <p class="instrucao">Agora, decida os níveis</p>
-        <div class="informacoes">
-            <p class="secoes">Nível 1</p>
-            <input class="caixa-imput" type="text" placeholder="Título do nível">
-            <input class="caixa-imput" type="text" placeholder="% de acerto mínima">
-            <input class="caixa-imput" type="text" placeholder="URL da imagem do nível">
-            <input class="caixa-imput" type="text" placeholder="Descrição do nível">
+        <div class="niveis-criar">
+            <div class="informacoes">
+                <p class="secoes">Nível 1</p>
+                <div class="inputs-nivel inputs-nivel1">
+                    <input class="caixa-imput" id="tituloNivel1" type="text" placeholder="Título do nível"/>
+                    <input class="caixa-imput" id="porcentNivel1" type="text" placeholder="% de acerto mínima"/>
+                    <input class="caixa-imput" type="url" placeholder="URL da imagem do nível"/>
+                    <input class="caixa-imput" type="url" placeholder="Descrição do nível"/>
+                </div>
+            </div>
         </div>
-        <div class="informacoes">
-            <p class="secoes">Nível 2</p>
-            <ion-icon name="create-outline"></ion-icon>
-        </div>
-        <div class="informacoes">
-            <p class="secoes">Nível 3</p>
-            <ion-icon name="create-outline"></ion-icon>
-        </div>
-        <div class="botao-prosseguir"><p>Prosseguir para criar níveis</p></div>
     </div>
+
+<!---------------------------------------------------Tela 34-------------------------------------------------------------------->
 
     <div class="tela34" style="background-color: greenyellow;">
         <p class="instrucao">Seu quizz está pronto!</p>
-        <img src="(your image URL here)">
+        <img src="(your image URL here)" />
         <div class="botao-prosseguir"><p>Prosseguir para criar níveis</p></div>
         <div class="botao-retornar">Voltar para home</div>
     </div>
-    
-    <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule="" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="scripts.js"></script>
+
+  <script
+    type="module"
+    src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"
+  ></script>
+  <script
+    nomodule=""
+    src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"
+  ></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="scripts.js"></script>
 </body>
 </html>

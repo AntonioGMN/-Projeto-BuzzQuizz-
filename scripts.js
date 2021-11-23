@@ -1,9 +1,13 @@
 let idEscolhido;
 let pontuação = 0;
+let arrayIds = [];
+let inicio =  localStorage.getItem("ids");
+
 
 function puxarQuizzes(){
   const promessa = axios.get("https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes");
   promessa.then((resposta) =>{
+    console.log(resposta);
     for(let i=0; i< resposta.data.length; i++){
       const quizzes = document.querySelector(".todosQuizzes .quizzes");
       quizzes.innerHTML += `
@@ -31,6 +35,7 @@ function escolherQuizz(sele){
 function pegarQuizzEscolhido(){
   const promessa = axios.get(`https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/${idEscolhido}`);
   promessa.then((resposta) =>{
+    console.log(resposta);
     const dados = resposta.data;
   
     const perguntas = document.querySelector(".jogandoQuizz .perguntas");
@@ -77,7 +82,6 @@ function pegarQuizzEscolhido(){
               <p>${dados.questions[i].answers[n[3]].text}</p>
               <div class="invisivel">${dados.questions[i].answers[n[3]].isCorrectAnswer}</div>
             </article>
-
         </section>
       </section>`
     }
@@ -85,7 +89,6 @@ function pegarQuizzEscolhido(){
     const levels = document.querySelector(".jogandoQuizz .levels");
     for(let i=0; i<dados.levels.length;i++){
       if(pontuação >= dados.levels[i].minValue){
-        console.log(toto);
         levels.innerHTML = `
           <header>${dados.levels[i].title}</header>
           <div>
@@ -148,7 +151,7 @@ function carregarPontuação(){
     }
   });
   levels.parentElement.classList.remove("invisivel");
-  levels.scrollIntoView({block: "center"});
+  levels.scrollIntoView();
 }
 
 function reiniciar(){
@@ -254,6 +257,15 @@ function expandir(classeImput) {
 ///////////////////////////////////// Tela 32 /////////////////
 
 let textoPerg = [];
+let corPerg = [];
+let corretaPerg = [];
+let imgCorretaPerg=[];
+let errada1Perg=[];
+let imgIncorreta1Perg=[];
+let errada2Perg=[];
+let imgIncorreta2Perg=[];
+let errada3Perg=[];
+let imgIncorreta3Perg=[];
 
 function validaTela32() {
   let quantasPerguntas = document.getElementById("quantasPerguntas").value;
@@ -266,7 +278,6 @@ function validaTela32() {
     textoPergOk[j] = textoPerg[j].length >= 20;
   }
 
-  let corPerg = [];
   for (let i = 1; i <= quantasPerguntas; i++) {
     corPerg[i - 1] = document.getElementById("corPerg" + i).value;
   }
@@ -297,7 +308,10 @@ function validaTela32() {
       !corPerg[j].includes("z");
   }
 
-  let corretaPerg = [];
+  for (let i = 1; i <= quantasPerguntas; i++) {
+    imgCorretaPerg[i - 1] = document.getElementById("imgCorretaPerg" + i).value;
+  }
+
   for (let i = 1; i <= quantasPerguntas; i++) {
     corretaPerg[i - 1] = document.getElementById("corretaPerg" + i).value;
   }
@@ -306,7 +320,6 @@ function validaTela32() {
     corretaPergOk[j] = corretaPerg[j] != "";
   }
 
-  let errada1Perg = [];
   for (let i = 1; i <= quantasPerguntas; i++) {
     errada1Perg[i - 1] = document.getElementById("errada1Perg" + i).value;
   }
@@ -314,7 +327,21 @@ function validaTela32() {
   for (let j = 0; j < quantasPerguntas; j++) {
     errada1PergOk[j] = errada1Perg[j] != "";
   }
-
+  for (let i = 1; i <= quantasPerguntas; i++) {
+    imgIncorreta1Perg[i - 1] = document.getElementById("imgIncorreta1Perg" + i).value;
+  }
+  for (let i = 1; i <= quantasPerguntas; i++) {
+    errada2Perg[i - 1] = document.getElementById("errada2Perg" + i).value;
+  }
+  for (let i = 1; i <= quantasPerguntas; i++) {
+    imgIncorreta2Perg[i - 1] = document.getElementById("imgIncorreta2Perg" + i).value;
+  }
+  for (let i = 1; i <= quantasPerguntas; i++) {
+    errada3Perg[i - 1] = document.getElementById("errada3Perg" + i).value;
+  }
+  for (let i = 1; i <= quantasPerguntas; i++) {
+    imgIncorreta3Perg[i - 1] = document.getElementById("imgIncorreta3Perg" + i).value;
+  }
   if (
     textoPergOk.includes(false) ||
     corPergOk.includes(false) ||
@@ -351,8 +378,13 @@ function validaTela32() {
 
 ////////////////////////////////////////////////////////////////////////////////////// Tela 33
 
+let tituloNivel = [];
+let imgNivel=[];
+let descNivel = [];
+let porcentNivel = [];
+
 function validaTela33(){
-  let tituloNivel = [];
+
   for (let i = 1; i <= quantosNiveis; i++) {
     tituloNivel[i - 1] = document.getElementById("tituloNivel" + i).value;
   }
@@ -360,8 +392,11 @@ function validaTela33(){
   for (let j = 0; j < quantosNiveis; j++) {
     tituloNivelOk[j] = tituloNivel[j].length >= 10;
   }
+  for (let i = 1; i <= quantosNiveis; i++) {
+    imgNivel[i - 1] = document.getElementById("imgNivel" + i).value;
+  }
 
-  let porcentNivel = [];
+
   for (let i = 1; i <= quantosNiveis; i++) {
     porcentNivel[i - 1] = document.getElementById("porcentNivel" + i).value;
   }
@@ -370,7 +405,7 @@ function validaTela33(){
     porcentNivelOk[j] = (0<=porcentNivel[j])&&(porcentNivel[j]<=100);
   }
 
-  let descNivel = [];
+
   for (let i = 1; i <= quantosNiveis; i++) {
     descNivel[i - 1] = document.getElementById("descNivel" + i).value;
   }
@@ -381,6 +416,15 @@ function validaTela33(){
 
   if (tituloNivelOk.includes(false)||porcentNivelOk.includes(false)||descNivelOk.includes(false)||!porcentNivel.includes("0")){alert("Preencha os dados corretamente");}
   else{
+          const divInformacoes3 = document.querySelector(".quizz-criado");
+      divInformacoes3.innerHTML =
+
+        `
+        <div class="imagem">
+          <img src="${imagemQuizz}"/>
+          <div class="legenda"><p>${tituloQuizz}</p></div>
+        </div>
+        `;
     const elemento1 = document.querySelector(".tela33");
     const elemento2 = document.querySelector(".tela34");
     elemento1.classList.add("invisivel");
@@ -390,7 +434,94 @@ function validaTela33(){
 }
 
 function enviarParaServidor(){
+  let questions=[];
+  for(let i=0;i<quantasPerguntas;i++){
+    questions[i]=
+      {
+        title: textoPerg[i],
+        color: corPerg[i],
+        answers: [
+          {
+            text: corretaPerg[i],
+            image: imgCorretaPerg[i],
+            isCorrectAnswer: true
+          },
+          {
+            text: errada1Perg[i],
+            image:  imgIncorreta1Perg[i],
+            isCorrectAnswer: false
+          },
+          {
+            text:errada2Perg[i],
+            image:imgIncorreta2Perg[i],
+            isCorrectAnswer: false
+          },
+          {
+            text:errada3Perg[i],
+            image:imgIncorreta3Perg[i],
+            isCorrectAnswer: false
+          }
+        ]
+      }
+  }
 
+  let levels=[];
+  for(let i=0;i<quantosNiveis;i++){
+    levels[i]=
+    {
+      title: tituloNivel[i],
+      image: imgNivel[i],
+      text: descNivel[i],
+      minValue: porcentNivel[i]
+    }
+  }
+
+  const dados = {
+    title: tituloQuizz,
+    image: imagemQuizz,
+    questions: questions,
+    levels: levels
+  };
+  const requisicao = axios.post('https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes', dados);
+  
+  requisicao.then((resposta)=>{
+    let stringIds;
+    // console.log("resposta do post:");
+    // console.log(resposta);
+    console.log("Id é:" + resposta.data.id);
+    arrayIds.push(resposta.data.id);
+
+    stringIds = JSON.stringify(arrayIds);
+    localStorage.setItem("ids",stringIds);
+
+    const arraysArmazendos = localStorage.getItem("ids");
+    arrayIds =  JSON.parse(arraysArmazendos);
+    console.log(arrayIds);
+    pegarMeusQuizzes();
+  });
+
+  requisicao.catch((resposta)=>{
+    console.log("resposta do erro do post:");
+    console.log(resposta);
+  });
+}
+
+function pegarMeusQuizzes(){
+  document.querySelector(".meusQuizz .vazio").classList.add("invisivel");
+  const meuQuizz = document.querySelector(".meusQuizz .quizzProprio");
+  meuQuizz.classList.remove("invisivel");
+  for(let i=0; i<arrayIds.length; i++){
+    const promessa = axios.get(`https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/${arrayIds[i]}`);
+    promessa.then((resposta)=>{
+      document.querySelector(".meusQuizz .quizzProprio .quizzes").innerHTML += ` 
+      <article class="quizz" onclick="escolherQuizz(this)">
+      <img src=${resposta.data[i].image}>
+      <p>${resposta.data[i].title}</p>
+      <div class="gradiente"></div>
+      <div class="id invisivel">${resposta.data[i].id}</div>
+      </article>`;
+    });
+  }
 }
 
 ////////////////////////////////////////////////////////////////////////////////////// Tela 34

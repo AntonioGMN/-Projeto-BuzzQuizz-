@@ -19,6 +19,7 @@ function puxarQuizzes(){
       </article>`;
     }
   });
+  promessa.catch((resposta)=>{consolelog("erro puxarQuizz")});
 }
 
 puxarQuizzes();
@@ -366,7 +367,7 @@ function validaTela32() {
           <div class="inputs-nivel inputs-nivel${i} invisivel">
             <input class="caixa-imput" id="tituloNivel${i}" type="text" placeholder="Título do nível"/>
             <input class="caixa-imput" id="porcentNivel${i}" type="number" placeholder="% de acerto mínima"/>
-            <input class="caixa-imput" type="url" placeholder="URL da imagem do nível"/>
+            <input class="caixa-imput" id="imgNivel${i}" type="url" placeholder="URL da imagem do nível"/>
             <input class="caixa-imput" id="descNivel${i}" type="url" placeholder="Descrição do nível"/>
           </div>
         </div>
@@ -377,7 +378,6 @@ function validaTela32() {
 
 
 ////////////////////////////////////////////////////////////////////////////////////// Tela 33
-
 let tituloNivel = [];
 let imgNivel=[];
 let descNivel = [];
@@ -486,8 +486,6 @@ function enviarParaServidor(){
   
   requisicao.then((resposta)=>{
     let stringIds;
-    // console.log("resposta do post:");
-    // console.log(resposta);
     console.log("Id é:" + resposta.data.id);
     arrayIds.push(resposta.data.id);
 
@@ -510,18 +508,18 @@ function pegarMeusQuizzes(){
   document.querySelector(".meusQuizz .vazio").classList.add("invisivel");
   const meuQuizz = document.querySelector(".meusQuizz .quizzProprio");
   meuQuizz.classList.remove("invisivel");
-  for(let i=0; i<arrayIds.length; i++){
-    const promessa = axios.get(`https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/${arrayIds[i]}`);
-    promessa.then((resposta)=>{
-      document.querySelector(".meusQuizz .quizzProprio .quizzes").innerHTML += ` 
-      <article class="quizz" onclick="escolherQuizz(this)">
-      <img src=${resposta.data[i].image}>
-      <p>${resposta.data[i].title}</p>
-      <div class="gradiente"></div>
-      <div class="id invisivel">${resposta.data[i].id}</div>
-      </article>`;
-    });
-  }
+  // for(let i=0; i<arrayIds.length; i++){
+  //   const promessa = axios.get(`https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/${arrayIds[i]}`);
+  //   promessa.then((resposta)=>{
+  //     document.querySelector(".meusQuizz .quizzProprio .quizzes").innerHTML += ` 
+  //     <article class="quizz" onclick="escolherQuizz(this)">
+  //     <img src=${resposta.data[i].image}>
+  //     <p>${resposta.data[i].title}</p>
+  //     <div class="gradiente"></div>
+  //     <div class="id invisivel">${resposta.data[i].id}</div>
+  //     </article>`;
+  //   });
+  // }
 }
 
 ////////////////////////////////////////////////////////////////////////////////////// Tela 34

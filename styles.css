@@ -556,13 +556,14 @@ main {
 .tela34 img {
   width: 500px;
   height: 266px;
-  margin-top: 19px;
-  margin-bottom: 45px;
+
 }
 .tela34 .imagem {
   position: relative;
   width: 500px;
   height: 266px;
+  margin-top: 19px;
+  margin-bottom: 45px;
 }
 .tela34 .imagem .legenda {
   position: absolute;

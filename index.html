@@ -18,7 +18,7 @@
         <section class="meusQuizz">
             <section class="vazio">
                 <span>Você não criou nenhum <br>quizz ainda :(<br/></span>
-                <button>Criar Quizz</button>
+                <button onclick="criarQuizz()">Criar Quizz</button>
             </section>
             <section class="quizzProprio invisivel">
                 <div>
@@ -37,18 +37,15 @@
     <main class="jogandoQuizz invisivel">
         <header></header>
         <section class="perguntas"></section>
-        <div class="quadro invisivel">
+        <section class="quadro invisivel">
             <section class="levels"></section>
             <button class="reiniciar" onclick="reiniciar()">Reiniciar Quizz</button>
             <button class="voltar" onclick="voltar()">Voltar pra home</button>
-        </div>
+        </section>
     </main>
 
 
-   <!---------------------------------------------------Tela 31-------------------------------------------------------------------->
-
-    <div class="tela31" style="background-color: royalblue;">
-
+    <div class="tela31 invisivel">
         <p class="instrucao">Comece pelo começo</p>
         <div class="informacoes">
             <input class="caixa-imput" id="tituloQuizz" type="text" placeholder="Título do seu quizz"/>
@@ -61,10 +58,8 @@
         </div>
     </div>
 
-
   <!---------------------------------------------------Tela 32-------------------------------------------------------------------->
-
-    <div class="tela32 invisivel" style="background-color: purple;">
+    <div class="tela32 invisivel">
         <p class="instrucao">Crie suas perguntas</p>
         <div class="perguntas-criar">
             <div class="informacoes">
@@ -74,16 +69,16 @@
                     <input class="caixa-imput" id="corPerg1" type="text" placeholder="Cor de fundo da pergunta"/>
                     <p class="secoes">Resposta correta</p>
                     <input class="caixa-imput" id="corretaPerg1" type="text" placeholder="Resposta correta"/>
-                    <input class="caixa-imput" type="url" placeholder="URL da imagem" />
+                    <input class="caixa-imput" id= "imgCorretaPerg1" type="url" placeholder="URL da imagem" />
                     <p class="secoes">Respostas incorretas</p>
                     <input class="caixa-imput" id="errada1Perg1" type="text" placeholder="Resposta incorreta 1"/>
-                    <input class="caixa-imput" type="url" placeholder="URL da imagem 1"/>
+                    <input class="caixa-imput" id= "imgIncorreta1Perg1" type="url" placeholder="URL da imagem 1"/>
                     <div style="height: 20px;"></div>
                     <input class="caixa-imput" id="errada2Perg1" type="text" placeholder="Resposta incorreta 2"/>
-                    <input class="caixa-imput" type="url" placeholder="URL da imagem 2"/>
+                    <input class="caixa-imput" id= "imgIncorreta2Perg1" type="url" placeholder="URL da imagem 2"/>
                     <div style="height: 20px;"></div>
                     <input class="caixa-imput" id="errada3Perg1" type="text" placeholder="Resposta incorreta 3"/>
-                    <input class="caixa-imput" type="url" placeholder="URL da imagem 3"/>
+                    <input class="caixa-imput" id= "imgIncorreta2Perg2" type="url" placeholder="URL da imagem 3"/>
                 </div>
             </div>
         </div>
@@ -92,9 +87,9 @@
         </div>
     </div>
 
-<!---------------------------------------------------Tela 33-------------------------------------------------------------------->
 
-    <div class="tela33 invisivel" style="background-color: orange;">
+<!---------------------------------------------------Tela 33-------------------------------------------------------------------->
+    <div class="tela33 invisivel">
         <p class="instrucao">Agora, decida os níveis</p>
         <div class="niveis-criar">
             <div class="informacoes">
@@ -112,17 +107,17 @@
         </div>
     </div>
 
-
 <!---------------------------------------------------Tela 34-------------------------------------------------------------------->
-
-    <div class="tela34" style="background-color: greenyellow;">
+    <div class="tela34 invisivel">
         <p class="instrucao">Seu quizz está pronto!</p>
         <div>
-            <div class="imagem"><img src="(your image URL here)" /></div>
-            <div class="legenda">O quão Potterhead é você?</div>
+            <div class="imagem">
+                <img src="(your image URL here)" />
+                <div class="legenda"><p>O quão Potterhead é você?</p></div>
+            </div>
         </div>
         <div class="botao-prosseguir"><p>Prosseguir para criar níveis</p></div>
-        <div class="botao-retornar">Voltar para home</div>
+        <div class="botao-retornar" onclick="voltarDa34()">Voltar para home</div>
     </div>
 
   <script
